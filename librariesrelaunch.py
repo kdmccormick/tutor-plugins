@@ -10,8 +10,10 @@ MFE_CONFIG_OVERRIDES.setdefault('course-authoring', {})['LIBRARY_MODE'] = 'mixed
 ))
 Filters.CLI_DO_INIT_TASKS.add_item((
     "cms",
-    """\
-(./manage.py cms waffle_flag --list | grep contentstore.new_studio_mfe.use_new_unit_page) || \\
-./manage.py cms waffle_flag contentstore.new_studio_mfe.use_new_unit_page --create --everyone
-"""
+    "(./manage.py cms waffle_flag --list | grep contentstore.new_studio_mfe.use_new_unit_page) || " +
+    "./manage.py cms waffle_flag contentstore.new_studio_mfe.use_new_unit_page --create --everyone",
+))
+Filters.CLI_DO_INIT_TASKS.add_item((
+    "cms",
+    "./manage.py cms reindex_studio --experimental",
 ))
