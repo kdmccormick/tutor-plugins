@@ -10,7 +10,7 @@ def _remove_extra_mfes(apps: dict) -> dict:
             for app_name, app in apps.items()
             if app_name in [
                 "learning",
-                "course-authoring",
+                "authoring",
                 "authn",
             ]
         },
